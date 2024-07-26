@@ -1,0 +1,20 @@
+version: '3'
+services:
+    server:
+        build:
+            dockerfile: Dockerfile
+            context: ./server
+        tty: true
+        volumes:
+            - ../server:/go/src/server
+        working_dir: /go/src/server
+        ports:
+            - 8080:8080
+        command: fresh
+    nginx:
+        container_name: "nginx"
+        build: ./nginx
+        ports:
+            - "80:80"
+        depends_on:
+            - "server"

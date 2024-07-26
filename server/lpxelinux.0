@@ -1,0 +1,8 @@
+#!ipxe
+dhcp
+set serverip http://192.0.2.254 //Modify this to match the ip address or domain of your webserver
+set pveversion 6.2 //Modify this to match the version you want to install
+set opts "vga=791 video=vesafb:ywrap,mtrr ramdisk_size=16777216 rw quiet initrd=initrd"
+kernel http://192.0.2.254/linux26 ${opts} proxmox-start-auto-installer
+initrd http://192.0.2.254/initrd
+boot

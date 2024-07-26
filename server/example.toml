@@ -1,0 +1,14 @@
+[global]
+keyboard = "en-us"
+country = "at" 
+fqdn = "pvexxx.testinstall" 
+mailto = "pvexxx@no.invalid" 
+timezone = "Asia/Tokyo" 
+root_password = "password" 
+[network] 
+source = "from-dhcp" 
+[disk-setup]
+filesystem = "ext4"
+lvm . swapsize = 0
+lvm . maxvz = 0
+disk_list = [ "sda" ]
